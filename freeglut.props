@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <freeglut>D:\Workspace\lib\freeglut\</freeglut>
+    <archt Condition="'$(Platform)'=='x64'">x64</archt>
+    <archt Condition="'$(Platform)'!='x64'">
+    </archt>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(freeglut)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>freeglut.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(freeglut)lib\$(archt)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="freeglut">
+      <Value>$(freeglut)</Value>
+    </BuildMacro>
+    <BuildMacro Include="archt">
+      <Value>$(archt)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <boost>d:\Workspace\lib\boost_1_52_0\</boost>
+    <boost_debug_suffix Condition="'$(Configuration)'=='Debug'">gd-</boost_debug_suffix>
+    <boost_debug_suffix Condition="'$(Configuration)'!='Debug'"></boost_debug_suffix>
+    <boost_version>1_52</boost_version>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(boost);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(boost)\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="boost">
+      <Value>$(boost)</Value>
+    </BuildMacro>
+    <BuildMacro Include="boost_debug_suffix">
+      <Value>$(boost_debug_suffix)</Value>
+    </BuildMacro>
+    <BuildMacro Include="boost_version">
+      <Value>$(boost_version)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)\tmp\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <PostBuildEvent>
+      <Command>xcopy /Y /G "$(glew)bin\glew32.dll" "$(outdir)"
+xcopy /Y /G "$(cgal)\bin\CGAL_Core-vc110-mt-$(cgal_debug_suffix)$(cgal_version).dll" "$(outdir)"
+xcopy /Y /G "$(cgal)\bin\CGAL-vc110-mt-$(cgal_debug_suffix)$(cgal_version).dll" "$(outdir)"
+xcopy /Y /G "$(freeglut)\bin\$(archt)\freeglut.dll" "$(outdir)"
+xcopy /Y /G "$(boost)\stage\lib\boost_date_time-vc110-mt-$(boost_debug_suffix)$(boost_version).dll" "$(outdir)"
+xcopy /Y /G "$(boost)\stage\lib\boost_thread-vc110-mt-$(boost_debug_suffix)$(boost_version).dll" "$(outdir)"
+xcopy /Y /G "$(boost)\stage\lib\boost_system-vc110-mt-$(boost_debug_suffix)$(boost_version).dll" "$(outdir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>
