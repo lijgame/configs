@@ -14,7 +14,10 @@ xcopy /Y /G "$(cgal)\bin\CGAL-vc110-mt-$(cgal_debug_suffix)$(cgal_version).dll" 
 xcopy /Y /G "$(freeglut)\bin\$(archt)\freeglut.dll" "$(outdir)"
 xcopy /Y /G "$(boost)\stage\lib\boost_date_time-vc110-mt-$(boost_debug_suffix)$(boost_version).dll" "$(outdir)"
 xcopy /Y /G "$(boost)\stage\lib\boost_thread-vc110-mt-$(boost_debug_suffix)$(boost_version).dll" "$(outdir)"
-xcopy /Y /G "$(boost)\stage\lib\boost_system-vc110-mt-$(boost_debug_suffix)$(boost_version).dll" "$(outdir)"</Command>
+xcopy /Y /G "$(boost)\stage\lib\boost_system-vc110-mt-$(boost_debug_suffix)$(boost_version).dll" "$(outdir)"
+xcopy /Y /G "$(wildmagic)\Library\v100\$(Platform)\$(Configuration)DLL\Wm5Core*.dll"  "$(outdir)"
+xcopy /Y /G "$(wildmagic)\Library\v100\$(Platform)\$(Configuration)DLL\Wm5Mathematics*.dll"  "$(outdir)"
+xcopy /Y /G "$(wildmagic)\Library\v100\$(Platform)\$(Configuration)DLL\Wm5Imagics*.dll"  "$(outdir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup />

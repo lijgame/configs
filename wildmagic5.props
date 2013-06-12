@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <wildmagic>d:\Workspace\lib\WildMagic5\SDK\</wildmagic>
+    <wm5_debug_suffix Condition="'$(Configuration)'=='Debug'">D</wm5_debug_suffix>
+	<wm5_debug_suffix Condition="'$(Configuration)'!='Debug'"></wm5_debug_suffix>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(wildmagic)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(wildmagic)\Library\v100\$(Platform)\$(Configuration)DLL\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Wm5Core$(wm5_debug_suffix).lib;Wm5Mathematics$(wm5_debug_suffix).lib;Wm5Imagics$(wm5_debug_suffix).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="wildmagic">
+      <Value>$(wildmagic)</Value>
+    </BuildMacro>
+    <BuildMacro Include="wm5_debug_suffix">
+      <Value>$(wm5_debug_suffix)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
