@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <qt>d:\workspace\Qt\Qt4.8.4\vs2010.x64\</qt>
+    <qt_debug_suffix Condition="'$(Configuration)'=='Debug'">d</qt_debug_suffix>
+    <qt_debug_suffix Condition="'$(Configuration)'!='Debug'">
+    </qt_debug_suffix>
+    <qt_version>4</qt_version>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(qt)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(qt)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>qtcore$(qt_debug_suffix)$(qt_version).lib;qtgui$(qt_debug_suffix)$(qt_version).lib;qtopengl$(qt_debug_suffix)$(qt_version).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="qt">
+      <Value>$(qt)</Value>
+    </BuildMacro>
+    <BuildMacro Include="qt_debug_suffix">
+      <Value>$(qt_debug_suffix)</Value>
+    </BuildMacro>
+    <BuildMacro Include="qt_version">
+      <Value>$(qt_version)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
